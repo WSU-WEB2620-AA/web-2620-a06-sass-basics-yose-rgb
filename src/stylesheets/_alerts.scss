@@ -1,0 +1,35 @@
+@use 'sass:color';
+@use 'variables';
+
+.alert{
+    padding:0.5em 1em;
+    border-radius: 5px;
+    border:1px solid color.adjust(variables.$gray, $lightness: 15%);
+    color: color.adjust(variables.$gray, $lightness: 10%);
+    margin: .5em;
+    font-size: 1rem;
+    background: color.adjust(variables.$gray, $lightness: 20%);
+
+
+.title{
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+
+
+&::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid color.adjust(variables.$gray, $lightness: -10%);
+    
+}
+}
+
+@each $type, $color in variables.$alert-types {
+    &.#{$type} {
+        background: color.adjust($color, $lightness: 40%);
+
+        border-color: color.adjust($color, $lightness: -20%);
+        color: $color;
+    }
+}
+}

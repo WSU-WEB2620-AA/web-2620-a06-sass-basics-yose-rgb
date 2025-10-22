@@ -1,10 +1,69 @@
 // Your styles go here
+
+@use 'sass:color';
+@use 'variables';
+@use 'nav';
+@use 'buttons';
+
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #202020 url('/images/footer-bg.jpg') repeat;
   min-width: 1200px;
   margin: 0;
   padding: 0;
 }
+
+
+
+//look in nav.scss for nav styles
+
+.alert {
+  padding:0.5em 1em;
+  border-radius: 5px;
+  border:1px solid color.adjust(variables.$gray, $lightness: 15%);
+  color: color.adjust(variables.$gray, $lightness: 10%);
+  margin: .5em;
+  font-size: 1rem;
+  background: color.adjust(variables.$gray, $lightness: 20%);
+
+}
+
+.alert.title {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.alert.title::after {
+  content: '';
+  display: block;
+  border-bottom: 1px solid color.adjust(variables.$gray, $lightness: -10%);
+  
+}
+
+.alert.primary {
+  //use color #007bff
+}
+
+.alert.secondary {
+  //use color #6c757d
+}
+
+.alert.success {
+  //use color #28a745
+}
+
+.alert.error {
+  //use color #dc3545
+}
+
+.alert.warning {
+  //use color #ffc107
+}
+
 
 body,
 input,
@@ -80,11 +139,12 @@ table {
 header {
   margin-bottom: 2em;
   line-height: 1.7em;
-}
 
-header h2 {
+  header h2 {
   font-size: 2.5em;
 }
+}
+
 
 header .byline {
   display: block;
@@ -124,9 +184,8 @@ footer {
   width: 1200px;
   margin-left: auto;
   margin-right: auto;
-}
 
-.container.small {
+  .container.small {
   width: 900px;
 }
 
@@ -135,6 +194,9 @@ footer {
   max-width: 1500px;
   min-width: 1200px;
 }
+}
+
+
 
 .row section,
 .row article {
@@ -158,18 +220,11 @@ footer {
   height: 0;
 }
 
-.column-1,
-.column-2,
-.column-3,
-.column-4,
-.column-5,
-.column-6,
-.column-7.column-8,
-.column-9,
-.column-10,
-.column-11,
-.column-12 {
-  width: 100%;
+$columns: 12;
+@for $i from 1 through $columns {
+  .column-#{$i} {
+    width: (100% / 12) * $i;
+  }
 }
 
 @media all and (min-width: 576px) {
@@ -224,9 +279,8 @@ footer {
 
 .image {
   display: inline-block;
-}
 
-.image img {
+  .image img {
   display: block;
   width: 100%;
 }
@@ -257,18 +311,22 @@ footer {
   margin: 0 auto;
   width: auto;
 }
+}
+
+
 
 ul.default {
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-ul.default li {
+  ul.default li {
   display: block;
   padding: 2em 0em 1.25em 0em;
   border-top: 1px solid #303030;
 }
+}
+
 
 ul.default li:first-child {
   padding-top: 0em;
@@ -278,23 +336,27 @@ ul.default li:first-child {
 ul.default a {
   text-decoration: none;
   color: rgba(255, 255, 255, .5);
-}
 
-ul.default a:hover {
+  ul.default a:hover {
   text-decoration: underline;
 }
+}
+
+
 
 ul.style1 {
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-ul.style1 li {
+  ul.style1 li {
   padding: 0.60em 0em;
   border-top: 1px solid;
   border-color: rgba(0, 0, 0, .1);
 }
+}
+
+
 
 ul.style1 li:first-child {
   padding-top: 0;
@@ -305,13 +367,15 @@ ul.style2 {
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-ul.style2 li {
+  ul.style2 li {
   padding: 1.90em 0em 1.60em 0em;
   border-top: 1px solid;
   border-color: rgba(0, 0, 0, .1);
 }
+}
+
+
 
 ul.style2 li:first-child {
   padding-top: 0;
@@ -328,93 +392,49 @@ ul.style5 {
   margin: 0em 0em 1em 0em;
   padding: 0em;
   list-style: none;
-}
 
-ul.style5 li {
+  ul.style5 li {
   float: left;
   padding: 0.25em 0.25em;
   line-height: 0;
 }
-
-.button {
-  position: relative;
-  display: inline-block;
-  margin-top: 0.5em;
-  padding: 0.50em 1.5em;
-  background: #0d6efd;
-  border-radius: 6px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.1em;
-  color: #FFF;
-  transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
-  cursor: pointer;
 }
 
-.button:hover {
-  background: #0d6efd;
-  color: #FFF !important;
-}
+//look in buttons.scss for button styles
+
+
+
+
 
 .header {
   position: relative;
   background: #FFF;
-}
 
-.header .container {
+  .header .container {
   position: relative;
   padding: 4em 0em;
 }
+}
+
+
 
 .logo {
   position: absolute;
   left: 0em;
   top: 3em;
-}
 
-.logo a {
+  .logo a {
   display: block;
   text-decoration: none;
   font-size: 2.8em;
   font-weight: 600;
 }
 
-.nav {
-  position: absolute;
-  right: 0em;
-  top: 2.2em;
 }
 
-.nav ul {
-  list-style-type: none;
-}
 
-.nav ul li {
-  float: left;
-}
 
-.nav ul li:last-child {
-  padding-right: 0;
-}
-
-.nav ul li a,
-.nav ul li span {
-  display: block;
-  margin-left: 0.7em;
-  padding: 0.80em 1.2em;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.1em;
-  outline: 0;
-  color: #333;
-}
-
-.nav li.active a {
-  background: #0d6efd;
-  border-radius: 5px;
-  color: #FFF;
-}
+//look in nav.scss for nav styles
 
 .banner {
   position: relative;
@@ -441,13 +461,15 @@ ul.style5 li {
 .footer {
   position: relative;
   color: rgba(255, 255, 255, .4);
-}
 
-.footer h2 {
+  .footer h2 {
   padding-bottom: 1.5em;
   font-size: 1.6em;
   color: #FFF;
 }
+}
+
+
 
 .footer strong {
   color: rgba(255, 255, 255, .7);
@@ -460,26 +482,29 @@ ul.style5 li {
   letter-spacing: 1px;
   text-align: center;
   color: rgba(255, 255, 255, .4);
-}
 
-.copyright a {
+  .copyright a {
   text-decoration: none;
   color: rgba(255, 255, 255, .4) !important;
 }
+}
+
+
 
 .marketing {
   position: relative;
-}
 
-.marketing header h2 {
+  .marketing header h2 {
   font-size: 1.6em;
 }
+}
+
 
 .featured {
   position: relative;
-}
 
-.featured .divider {
+
+  .featured .divider {
   border-bottom: 1px solid #303030;
 }
 
@@ -489,6 +514,8 @@ ul.style5 li {
   font-size: 0.95em;
   border-radius: 5px;
 }
+}
+
 
 .balloon {
   padding: 1.87em;
