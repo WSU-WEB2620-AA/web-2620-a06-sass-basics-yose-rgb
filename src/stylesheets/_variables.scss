@@ -1,10 +1,16 @@
+   //variables styles
+   
+   
    @use 'sass:map';
    @use 'sass:color';
    @use 'variables';
    @use 'nav';
     @use 'buttons';
-    
-   
+
+   /*
+    Alert 
+    colors
+*/
    
    $gray:#ccc;
     $primary:#007bff;
@@ -21,3 +27,5 @@
         'error': $error,
         'warning': $warning
     );
+
+    

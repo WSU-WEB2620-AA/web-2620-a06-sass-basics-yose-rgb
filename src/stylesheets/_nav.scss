@@ -1,5 +1,8 @@
 @use 'variables';
 
+
+
+//nav styles
 .nav {
   position: absolute;
   right: 0em;
@@ -37,6 +40,10 @@
   }
 }
 
+/*
+Active 
+nav link
+*/
 
 
 &.active a {

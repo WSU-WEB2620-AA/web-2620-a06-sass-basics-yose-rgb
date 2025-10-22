@@ -196,7 +196,7 @@ footer {
 }
 }
 
-
+//ROW AND COLUMN STYLES
 
 .row section,
 .row article {
@@ -219,6 +219,11 @@ footer {
   clear: both;
   height: 0;
 }
+
+/*
+This is the
+column loop
+*/
 
 $columns: 12;
 @for $i from 1 through $columns {
@@ -277,6 +282,8 @@ $columns: 12;
   }
 }
 
+//end column loop
+
 .image {
   display: inline-block;
 
@@ -314,7 +321,9 @@ $columns: 12;
 }
 
 
-
+/* START OF 
+Lists 
+*/
 ul.default {
   margin: 0;
   padding: 0;
@@ -399,6 +408,7 @@ ul.style5 {
   line-height: 0;
 }
 }
+//END ROW AND COLUMN STYLES
 
 //look in buttons.scss for button styles
 

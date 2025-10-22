@@ -1,5 +1,11 @@
+//alerts styles
+
+
+
 @use 'sass:color';
 @use 'variables';
+
+
 
 .alert{
     padding:0.5em 1em;
@@ -23,6 +29,11 @@
     
 }
 }
+
+/*
+ ALERT 
+ TYPE STYLES
+*/
 
 @each $type, $color in variables.$alert-types {
     &.#{$type} {
